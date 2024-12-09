@@ -1,0 +1,6 @@
+.env
+.eslintcache
+.nvmrc
+README.md
+build/
+node_modules/
