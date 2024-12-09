@@ -4,6 +4,7 @@ import {
     SpruceSchemas,
 } from '@sprucelabs/spruce-test-fixtures'
 import { generateId } from '@sprucelabs/test-utils'
+import { CatValues } from '../../twelvebit.type'
 
 type SubmitFeedbackType =
     SpruceSchemas.Twelvebit.v2024_12_06.FeedbackeventEmitTargetAndPayload
@@ -18,6 +19,14 @@ export type SaveCatValuesEmitTargetAndPayload =
     SpruceSchemas.Twelvebit.v2024_12_06.SaveCatValuesEmitTargetAndPayload
 
 export default class EventFaker {
+    public async fakeGetCat(cb?: () => void | CatValues) {
+        await eventFaker.on('twelvebit.get-cat::v2024_12_06', () => {
+            return {
+                cat: cb?.() ?? this.generateCatValuesRecord(),
+            }
+        })
+    }
+
     public async fakeGetPerson(
         cb?: (targetAndPayload: PersonTargetAndPayload) => void
     ) {
@@ -54,17 +63,21 @@ export default class EventFaker {
             (targetAndPayload) => {
                 cb?.(targetAndPayload)
                 return {
-                    cat: {
-                        id: generateId(),
-                        name: generateId(),
-                        values: generateId(),
-                        source: {
-                            personId: generateId(),
-                        },
-                    },
+                    cat: this.generateCatValuesRecord(),
                 }
             }
         )
+    }
+
+    public generateCatValuesRecord(): CatValues {
+        return {
+            id: generateId(),
+            name: generateId(),
+            values: generateId(),
+            source: {
+                personId: generateId(),
+            },
+        }
     }
 
     public async fakeSubmitFeedbackEvent(

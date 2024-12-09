@@ -1,16 +1,13 @@
 import { fake } from '@sprucelabs/spruce-test-fixtures'
 import { assert, generateId, test } from '@sprucelabs/test-utils'
-import CatsStore from '../../../stores/Cats.store'
 import { CreateCatValues } from '../../../twelvebit.type'
 import AbstractTwelveBitTest from '../../support/AbstractTwelveBitTest'
 
 @fake.login()
 export default class SaveCatListenerTest extends AbstractTwelveBitTest {
-    private static cats: CatsStore
     protected static async beforeEach(): Promise<void> {
         await super.beforeEach()
         await this.bootSkill()
-        this.cats = await this.stores.getStore('cats')
     }
 
     @test()
@@ -64,8 +61,8 @@ export default class SaveCatListenerTest extends AbstractTwelveBitTest {
         const name = generateId()
         await this.emitSaveCatValues({ name })
         await this.emitSaveCatValues({ name })
-        // const savedNumbers = await this.cats.count({ name })
-        // assert.isEqual(savedNumbers, 1, `Cat record was created twice or none`)
+        const savedNumbers = await this.cats.count({ name })
+        assert.isEqual(savedNumbers, 1, `Cat record was created twice or none`)
     }
 
     @test()

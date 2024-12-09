@@ -5,6 +5,7 @@ import {
 } from '@sprucelabs/heartwood-view-controllers'
 import { eventFaker, fake } from '@sprucelabs/spruce-test-fixtures'
 import { assert, generateId, test } from '@sprucelabs/test-utils'
+import { CatValues } from '../../../twelvebit.type'
 import ValuesSkillViewController from '../../../values/Values.svc'
 import AbstractTwelveBitTest from '../../support/AbstractTwelveBitTest'
 import { SaveCatValuesEmitTargetAndPayload } from '../../support/EventFaker'
@@ -22,6 +23,7 @@ export default class ValuesSkillViewTest extends AbstractTwelveBitTest {
             'twelvebit.values',
             {}
         ) as SpyValuesSkillViewController
+        await this.eventFaker.fakeGetCat()
     }
 
     @test()
@@ -99,6 +101,25 @@ export default class ValuesSkillViewTest extends AbstractTwelveBitTest {
         await this.fillOutForm()
 
         await vcAssert.assertRendersAlert(this.vc, () => this.submitForm())
+    }
+
+    @test()
+    protected static async populateFormFromCatResponse() {
+        const result: CatValues = this.eventFaker.generateCatValuesRecord()
+        await this.eventFaker.fakeGetCat(() => {
+            return result
+        })
+        await this.views.load(this.vc)
+
+        const actual = this.vc.getForm().getValues()
+        assert.isEqualDeep(
+            actual,
+            {
+                name: result.name,
+                values: result.values,
+            },
+            `Values are not set in the form`
+        )
     }
 }
 

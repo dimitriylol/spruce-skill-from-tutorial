@@ -16,6 +16,13 @@ const listeners: EventFeatureListener[] = [
         isGlobal: require('../../listeners/twelvebit/feedbackevent.v2024_12_06.listener').isGlobal,
     },
     {
+        eventName: 'get-cat',
+        eventNamespace: 'twelvebit',
+        version: 'v2024_12_06',
+        callback: require('../../listeners/twelvebit/get-cat.v2024_12_06.listener').default,
+        isGlobal: require('../../listeners/twelvebit/get-cat.v2024_12_06.listener').isGlobal,
+    },
+    {
         eventName: 'save-cat-values',
         eventNamespace: 'twelvebit',
         version: 'v2024_12_06',

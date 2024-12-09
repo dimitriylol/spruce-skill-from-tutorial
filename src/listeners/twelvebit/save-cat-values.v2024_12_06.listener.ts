@@ -15,7 +15,6 @@ export default async (
     ).upsertOne(
         {
             'source.personId': source.personId,
-            'source.name': payload.cat.name,
         },
         {
             ...payload.cat,

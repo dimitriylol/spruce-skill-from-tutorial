@@ -11,8 +11,8 @@ import { default as SchemaEntity } from '@sprucelabs/schema'
 
 import * as SpruceSchema from '@sprucelabs/schema'
 
-import '@sprucelabs/spruce-event-utils'
 import { SkillViewControllerId } from '@sprucelabs/heartwood-view-controllers'
+import '@sprucelabs/spruce-event-utils'
 
 declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schemas.types' {
 
@@ -72,51 +72,6 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 		}
 
 		interface DidRegisterSkillViewsEmitPayloadEntity extends SchemaEntity<SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitPayloadSchema> {}
-
-	}
-
-
-	namespace SpruceSchemas.Heartwood.v2021_02_11 {
-
-		
-		interface DidRegisterSkillViewsEmitTargetAndPayload {
-			
-				/** Source. */
-				'source'?: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSource| undefined | null
-				
-				'target': SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitTarget
-				
-				'payload': SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitPayload
-		}
-
-		interface DidRegisterSkillViewsEmitTargetAndPayloadSchema extends SpruceSchema.Schema {
-			id: 'didRegisterSkillViewsEmitTargetAndPayload',
-			version: 'v2021_02_11',
-			namespace: 'Heartwood',
-			name: '',
-			    fields: {
-			            /** Source. */
-			            'source': {
-			                label: 'Source',
-			                type: 'schema',
-			                options: {schema: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSourceSchema,}
-			            },
-			            /** . */
-			            'target': {
-			                type: 'schema',
-			                isRequired: true,
-			                options: {schema: SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitTargetSchema,}
-			            },
-			            /** . */
-			            'payload': {
-			                type: 'schema',
-			                isRequired: true,
-			                options: {schema: SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitPayloadSchema,}
-			            },
-			    }
-		}
-
-		interface DidRegisterSkillViewsEmitTargetAndPayloadEntity extends SchemaEntity<SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitTargetAndPayloadSchema> {}
 
 	}
 
@@ -670,43 +625,6 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 	namespace SpruceSchemas.Heartwood.v2021_02_11 {
 
 		
-		interface RegisterSkillViewsEmitTargetAndPayload {
-			
-				/** Source. */
-				'source'?: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSource| undefined | null
-				
-				'payload': SpruceSchemas.Heartwood.v2021_02_11.RegisterSkillViewsEmitPayload
-		}
-
-		interface RegisterSkillViewsEmitTargetAndPayloadSchema extends SpruceSchema.Schema {
-			id: 'registerSkillViewsEmitTargetAndPayload',
-			version: 'v2021_02_11',
-			namespace: 'Heartwood',
-			name: '',
-			    fields: {
-			            /** Source. */
-			            'source': {
-			                label: 'Source',
-			                type: 'schema',
-			                options: {schema: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSourceSchema,}
-			            },
-			            /** . */
-			            'payload': {
-			                type: 'schema',
-			                isRequired: true,
-			                options: {schema: SpruceSchemas.Heartwood.v2021_02_11.RegisterSkillViewsEmitPayloadSchema,}
-			            },
-			    }
-		}
-
-		interface RegisterSkillViewsEmitTargetAndPayloadEntity extends SchemaEntity<SpruceSchemas.Heartwood.v2021_02_11.RegisterSkillViewsEmitTargetAndPayloadSchema> {}
-
-	}
-
-
-	namespace SpruceSchemas.Heartwood.v2021_02_11 {
-
-		
 		interface RegisterSkillViewsResponsePayload {
 			
 				/** . Views that were registered. Will match the number of ids you sent. */
@@ -837,6 +755,116 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 	}
 
 
+	namespace SpruceSchemas.Twelvebit.v2024_12_06 {
+
+		
+		interface GetCatResponsePayload {
+			
+				
+				'cat'?: SpruceSchemas.Twelvebit.v2024_12_06.CatValues| undefined | null
+		}
+
+		interface GetCatResponsePayloadSchema extends SpruceSchema.Schema {
+			id: 'getCatResponsePayload',
+			version: 'v2024_12_06',
+			namespace: 'Twelvebit',
+			name: '',
+			    fields: {
+			            /** . */
+			            'cat': {
+			                type: 'schema',
+			                options: {schema: SpruceSchemas.Twelvebit.v2024_12_06.CatValuesSchema,}
+			            },
+			    }
+		}
+
+		interface GetCatResponsePayloadEntity extends SchemaEntity<SpruceSchemas.Twelvebit.v2024_12_06.GetCatResponsePayloadSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Heartwood.v2021_02_11 {
+
+		
+		interface DidRegisterSkillViewsEmitTargetAndPayload {
+			
+				/** Source. */
+				'source'?: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSource| undefined | null
+				
+				'target': SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitTarget
+				
+				'payload': SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitPayload
+		}
+
+		interface DidRegisterSkillViewsEmitTargetAndPayloadSchema extends SpruceSchema.Schema {
+			id: 'didRegisterSkillViewsEmitTargetAndPayload',
+			version: 'v2021_02_11',
+			namespace: 'Heartwood',
+			name: '',
+			    fields: {
+			            /** Source. */
+			            'source': {
+			                label: 'Source',
+			                type: 'schema',
+			                options: {schema: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSourceSchema,}
+			            },
+			            /** . */
+			            'target': {
+			                type: 'schema',
+			                isRequired: true,
+			                options: {schema: SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitTargetSchema,}
+			            },
+			            /** . */
+			            'payload': {
+			                type: 'schema',
+			                isRequired: true,
+			                options: {schema: SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitPayloadSchema,}
+			            },
+			    }
+		}
+
+		interface DidRegisterSkillViewsEmitTargetAndPayloadEntity extends SchemaEntity<SpruceSchemas.Heartwood.v2021_02_11.DidRegisterSkillViewsEmitTargetAndPayloadSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Heartwood.v2021_02_11 {
+
+		
+		interface RegisterSkillViewsEmitTargetAndPayload {
+			
+				/** Source. */
+				'source'?: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSource| undefined | null
+				
+				'payload': SpruceSchemas.Heartwood.v2021_02_11.RegisterSkillViewsEmitPayload
+		}
+
+		interface RegisterSkillViewsEmitTargetAndPayloadSchema extends SpruceSchema.Schema {
+			id: 'registerSkillViewsEmitTargetAndPayload',
+			version: 'v2021_02_11',
+			namespace: 'Heartwood',
+			name: '',
+			    fields: {
+			            /** Source. */
+			            'source': {
+			                label: 'Source',
+			                type: 'schema',
+			                options: {schema: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSourceSchema,}
+			            },
+			            /** . */
+			            'payload': {
+			                type: 'schema',
+			                isRequired: true,
+			                options: {schema: SpruceSchemas.Heartwood.v2021_02_11.RegisterSkillViewsEmitPayloadSchema,}
+			            },
+			    }
+		}
+
+		interface RegisterSkillViewsEmitTargetAndPayloadEntity extends SchemaEntity<SpruceSchemas.Heartwood.v2021_02_11.RegisterSkillViewsEmitTargetAndPayloadSchema> {}
+
+	}
+
+
 	namespace SpruceSchemas.Heartwood.v2021_02_11 {
 
 		
@@ -922,6 +950,43 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 	namespace SpruceSchemas.Twelvebit.v2024_12_06 {
 
 		
+		interface FeedbackeventEmitTargetAndPayload {
+			
+				/** Source. */
+				'source'?: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSource| undefined | null
+				
+				'payload': SpruceSchemas.Twelvebit.v2024_12_06.FeedbackeventEmitPayload
+		}
+
+		interface FeedbackeventEmitTargetAndPayloadSchema extends SpruceSchema.Schema {
+			id: 'feedbackeventEmitTargetAndPayload',
+			version: 'v2024_12_06',
+			namespace: 'Twelvebit',
+			name: '',
+			    fields: {
+			            /** Source. */
+			            'source': {
+			                label: 'Source',
+			                type: 'schema',
+			                options: {schema: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSourceSchema,}
+			            },
+			            /** . */
+			            'payload': {
+			                type: 'schema',
+			                isRequired: true,
+			                options: {schema: SpruceSchemas.Twelvebit.v2024_12_06.FeedbackeventEmitPayloadSchema,}
+			            },
+			    }
+		}
+
+		interface FeedbackeventEmitTargetAndPayloadEntity extends SchemaEntity<SpruceSchemas.Twelvebit.v2024_12_06.FeedbackeventEmitTargetAndPayloadSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Twelvebit.v2024_12_06 {
+
+		
 		interface CreateCat {
 			
 				/** Cat's Name. */
@@ -990,35 +1055,6 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 	namespace SpruceSchemas.Twelvebit.v2024_12_06 {
 
 		
-		interface SaveCatValuesResponsePayload {
-			
-				
-				'cat': SpruceSchemas.Twelvebit.v2024_12_06.CatValues
-		}
-
-		interface SaveCatValuesResponsePayloadSchema extends SpruceSchema.Schema {
-			id: 'saveCatValuesResponsePayload',
-			version: 'v2024_12_06',
-			namespace: 'Twelvebit',
-			name: '',
-			    fields: {
-			            /** . */
-			            'cat': {
-			                type: 'schema',
-			                isRequired: true,
-			                options: {schema: SpruceSchemas.Twelvebit.v2024_12_06.CatValuesSchema,}
-			            },
-			    }
-		}
-
-		interface SaveCatValuesResponsePayloadEntity extends SchemaEntity<SpruceSchemas.Twelvebit.v2024_12_06.SaveCatValuesResponsePayloadSchema> {}
-
-	}
-
-
-	namespace SpruceSchemas.Twelvebit.v2024_12_06 {
-
-		
 		interface FeedbackeventEmitPayload {
 			
 				
@@ -1041,43 +1077,6 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 		}
 
 		interface FeedbackeventEmitPayloadEntity extends SchemaEntity<SpruceSchemas.Twelvebit.v2024_12_06.FeedbackeventEmitPayloadSchema> {}
-
-	}
-
-
-	namespace SpruceSchemas.Twelvebit.v2024_12_06 {
-
-		
-		interface FeedbackeventEmitTargetAndPayload {
-			
-				/** Source. */
-				'source'?: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSource| undefined | null
-				
-				'payload': SpruceSchemas.Twelvebit.v2024_12_06.FeedbackeventEmitPayload
-		}
-
-		interface FeedbackeventEmitTargetAndPayloadSchema extends SpruceSchema.Schema {
-			id: 'feedbackeventEmitTargetAndPayload',
-			version: 'v2024_12_06',
-			namespace: 'Twelvebit',
-			name: '',
-			    fields: {
-			            /** Source. */
-			            'source': {
-			                label: 'Source',
-			                type: 'schema',
-			                options: {schema: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSourceSchema,}
-			            },
-			            /** . */
-			            'payload': {
-			                type: 'schema',
-			                isRequired: true,
-			                options: {schema: SpruceSchemas.Twelvebit.v2024_12_06.FeedbackeventEmitPayloadSchema,}
-			            },
-			    }
-		}
-
-		interface FeedbackeventEmitTargetAndPayloadEntity extends SchemaEntity<SpruceSchemas.Twelvebit.v2024_12_06.FeedbackeventEmitTargetAndPayloadSchema> {}
 
 	}
 
@@ -1191,6 +1190,35 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 		}
 
 		interface CatValuesEntity extends SchemaEntity<SpruceSchemas.Twelvebit.v2024_12_06.CatValuesSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Twelvebit.v2024_12_06 {
+
+		
+		interface SaveCatValuesResponsePayload {
+			
+				
+				'cat': SpruceSchemas.Twelvebit.v2024_12_06.CatValues
+		}
+
+		interface SaveCatValuesResponsePayloadSchema extends SpruceSchema.Schema {
+			id: 'saveCatValuesResponsePayload',
+			version: 'v2024_12_06',
+			namespace: 'Twelvebit',
+			name: '',
+			    fields: {
+			            /** . */
+			            'cat': {
+			                type: 'schema',
+			                isRequired: true,
+			                options: {schema: SpruceSchemas.Twelvebit.v2024_12_06.CatValuesSchema,}
+			            },
+			    }
+		}
+
+		interface SaveCatValuesResponsePayloadEntity extends SchemaEntity<SpruceSchemas.Twelvebit.v2024_12_06.SaveCatValuesResponsePayloadSchema> {}
 
 	}
 

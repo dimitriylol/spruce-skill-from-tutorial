@@ -3,6 +3,7 @@ import {
     UniversalStoreOptions,
     PrepareOptions,
     PrepareResults,
+    generateId,
 } from '@sprucelabs/data-stores'
 import {
     buildSchema,
@@ -11,6 +12,7 @@ import {
     SchemaValues,
     SchemaFieldNames,
 } from '@sprucelabs/schema'
+import { StoreSeedOptions } from '@sprucelabs/spruce-test-fixtures'
 import catValuesSchema from '#spruce/schemas/twelvebit/v2024_12_06/catValues.schema'
 
 export default class CatsStore extends AbstractStore<
@@ -31,6 +33,12 @@ export default class CatsStore extends AbstractStore<
         return new this(options.db)
     }
 
+    public async initialize(): Promise<void> {
+        await this.db.syncUniqueIndexes(this.collectionName, [
+            ['source.personId'],
+        ])
+    }
+
     protected async willCreate(
         values: CreateCat
     ): Promise<Omit<DatabaseCat, 'id'>> {
@@ -49,6 +57,23 @@ export default class CatsStore extends AbstractStore<
         _options?: PrepareOptions<IncludePrivateFields, FullSchema, F>
     ) {
         return record as PrepareResults<FullSchema, IncludePrivateFields>
+    }
+
+    public async seed(options: StoreSeedOptions) {
+        const { totalToSeed, TestClass } = options
+        const personId = TestClass.fakedPerson.id
+
+        await Promise.all(
+            Array.from({ length: totalToSeed }).map(() =>
+                this.createOne({
+                    name: generateId(),
+                    values: generateId(),
+                    source: {
+                        personId,
+                    },
+                })
+            )
+        )
     }
 }
 

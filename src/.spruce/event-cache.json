@@ -1,7 +1,7 @@
 {
   "events": {
     "listenerCacheKeys": {
-      "http1270018081": "didbootskillv2024_12_06feedbackeventtwelvebitv2024_12_06savecatvaluestwelvebitv2024_12_06"
+      "http1270018081": "didbootskillv2024_12_06feedbackeventtwelvebitv2024_12_06getcattwelvebitv2024_12_06savecatvaluestwelvebitv2024_12_06"
     },
     "lastSync": {
       "contractDestinationDir": "#spruce/events",

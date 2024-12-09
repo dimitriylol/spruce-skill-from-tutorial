@@ -8,7 +8,6 @@ import {
     SkillViewControllerLoadOptions,
     Router,
 } from '@sprucelabs/heartwood-view-controllers'
-import { generateId } from '@sprucelabs/test-utils'
 import catValuesSchema from '#spruce/schemas/twelvebit/v2024_12_06/catValues.schema'
 import { CatValuesSchema } from '../twelvebit.type'
 
@@ -76,6 +75,11 @@ export default class ValuesSkillViewController extends AbstractSkillViewControll
     public async load(options: SkillViewControllerLoadOptions) {
         const { router } = options
         this.router = router
+        const client = await this.connectToApi()
+        const [{ cat }] = await client.emitAndFlattenResponses(
+            'twelvebit.get-cat::v2024_12_06'
+        )
+        await this.formVc.setValues(cat ?? {})
     }
 
     private CardVc(): CardViewController {
